@@ -23,7 +23,15 @@ int segF = 7; // pin for control "f" segment
 int segG = 8; // pin for control "g" segment
 int segDP = 13; // pin for control decimal point
 
-
+/*
+https://www.hackster.io/microst/thermometer-diode-based-524613
+Thermometer based on 1n4148 silicon diode used as temperature sensor.The thermometer is based on the diode characteristic that the increase of the temperature its forward voltage (VF) is lowered by 2,2mV / ° C.
+Fixing the value of Vf = VF0 at ambient temperature t0, the temperature value
+t is calculated with the following formula:
+t= t0 - [vf(t)- vf0]* K
+with K = 1 / 2,2mV
+The value of Vf (t) = dtemp -vf0 is obtained by averaging values of 1024 by acquiring as many vf values
+*/
 #define DIODA A5  // pin for conect 1n4148 diode and GND
 const int t0 = 20.3;
 const float vf0 = 573.44;
